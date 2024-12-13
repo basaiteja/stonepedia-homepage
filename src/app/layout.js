@@ -1,5 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,8 +23,24 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        style={{
+          backgroundImage: 'url("https://stonepedia.in/wp-content/uploads/2024/11/Screenshot-2024-11-23-000658.png")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          minHeight: "100vh",
+          backgroundAttachment: "fixed",
+        }}
       >
-        {children}
+        <Header />
+        <main
+          style={{
+            paddingTop: "4rem", // Space for the fixed Header
+          }}
+        >
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
